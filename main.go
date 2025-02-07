@@ -1,16 +1,32 @@
 package main
 
 import (
-	"log"
+	"context"
 	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
+
+	"gitlab.com/Tkdefender88/coolestyp/internal/middleware"
 )
 
+func SetupLogger() {
+	loggerOptions := &slog.HandlerOptions{
+		Level: slog.LevelInfo,
+	}
+
+	logger := slog.New(slog.NewJSONHandler(os.Stdout, loggerOptions))
+
+	slog.SetDefault(logger)
+}
+
 func main() {
+	logger := middleware.LoggingMiddleware()
 	mux := http.NewServeMux()
+
+	SetupLogger()
 
 	assetsRoot := "assets/"
 	assetsHandler := http.StripPrefix("/app", http.FileServer(http.Dir(assetsRoot)))
@@ -18,16 +34,18 @@ func main() {
 
 	srv := http.Server{
 		Addr:    ":42069",
-		Handler: mux,
+		Handler: logger(mux),
 	}
 
-
-	shutdownChannel := make(chan os.Signal)
+	shutdownChannel := make(chan os.Signal, 1)
 
 	signal.Notify(shutdownChannel, syscall.SIGINT, syscall.SIGKILL, syscall.SIGABRT)
 
 	go func() {
-		log.Fatal(srv.ListenAndServe())
+		err := srv.ListenAndServe()
+		if err != nil {
+			slog.Error("Error running server", "error", err)
+		}
 	}()
 
 	slog.Info("Server started")
@@ -35,10 +53,14 @@ func main() {
 	<-shutdownChannel
 
 	slog.Info("Shutting down")
-}
+	shutdownContext, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 
-func Hello(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello World"))
+	defer cancel()
+
+	err := srv.Shutdown(shutdownContext)
+	if err != nil {
+		slog.Error("Error shutting down the server", "error", err)
+	}
 }
 
 func noCacheMiddleware(next http.Handler) http.Handler {
