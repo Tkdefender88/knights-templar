@@ -1,0 +1,11 @@
+- [ ] diet water
+- [ ] Love you, mean it
+- [ ] LEEEEEEEAAAADERRRRRRRRRRRRRR MEEEEEETTTTTTIINNNNNNNGG
+- [ ] Building and tools and such
+- [ ] Nerf wars
+- [ ] Sneaking joke words into his sermons
+- [ ] Being a Californian Refugee
+- [ ] Reminiscing about the good times
+- [ ] GROG!!!
+- [ ] Broom ball
+- [ ] Improving games on the spot
