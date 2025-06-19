@@ -1,15 +1,15 @@
 # Working directory
 # . or absolute path, please note that the directories following must be under root.
 root = "."
-tmp_dir = "tmp"
+tmp_dir = "bin"
 
 [build]
 # Just plain old shell command. You could use `make` as well.
-cmd = "go build -o ./tmp/main ./cmd/main.go"
+cmd = "go build -o ./bin/main ./cmd/main.go"
 # Binary file yields from `cmd`.
-bin = "tmp/main"
+bin = "bin/main"
 # Customize binary.
-full_bin = "APP_ENV=dev APP_USER=air ./tmp/main"
+full_bin = "APP_ENV=dev APP_USER=air ./bin/main"
 # Watch these filename extensions.
 include_ext = ["go", "tpl", "tmpl", "html", "css", "js"]
 # Ignore these filename extensions or directories.

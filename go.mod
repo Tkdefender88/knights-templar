@@ -1,4 +1,4 @@
-module gitlab.com/Tkdefender88/coolestyp
+module github.com/Tkdefender88/knights-templar
 
 go 1.23.0
 

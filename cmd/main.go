@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"time"
 
-	"gitlab.com/Tkdefender88/coolestyp/internal/middleware"
+	"github.com/Tkdefender88/knights-templar/internal/middleware"
 )
 
 func SetupLogger() {
