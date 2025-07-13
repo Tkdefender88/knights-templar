@@ -16,6 +16,11 @@ body {
   position: absolute;
   animation: spin 5s linear infinite;
   border-radius: 25px;
+  z-index: -1;
+  top: initial;
+  bottom: initial;
+  left: initial;
+  right: initial;
 }
 
 /* Media queries for responsive design */
@@ -29,9 +34,9 @@ body {
   .surfboard {
     width: 30px;
     height: 90px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    position: relative;
+    top: 20%;
+    left: 20%;
     transform: translate(-50%, -50%) rotate(0deg);
   }
 }
@@ -42,26 +47,28 @@ body {
 }
 
 /* Additional styles to position surfboards */
-.surfboard:nth-child(1) {
-  top: 0;
-  left: 0;
-  transform: translateY(-100%) rotate(0deg);
+#surfboard-1 {
+  top: 20%;
+  left: 20%;
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
-.surfboard:nth-child(2) {
-  top: 0;
-  right: 0;
-  transform: translateY(-100%) rotate(0deg);
+#surfboard-2 {
+  top: 20%;
+  right: 20%;
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
-.surfboard:nth-child(3) {
-  bottom: 0;
-  left: 0;
+#surfboard-3 {
+  bottom: 20%;
+  left: 20%;
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
-.surfboard:nth-child(4) {
-  bottom: 0;
-  right: 0;
+#surfboard-4 {
+  bottom: 20%;
+  right: 20%;
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
 marquee {
