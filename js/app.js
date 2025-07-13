@@ -8,4 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
   const joke = jokes[Math.floor(Math.random() * jokes.length)];
   if (jokeContainer) jokeContainer.innerHTML = `<p><strong>Pastor Joke:</strong> ${joke}</p>`;
+  const audio = document.querySelector('audio');
+  if (audio) {
+    audio.play().catch(error => {
+      console.error('Audio play failed:', error);
+    });
+  }
 });

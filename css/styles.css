@@ -18,6 +18,24 @@ body {
   border-radius: 25px;
 }
 
+/* Media queries for responsive design */
+@media only screen and (max-width: 600px) {
+  .surfboard {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  .surfboard {
+    width: 30px;
+    height: 90px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
