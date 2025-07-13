@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   text-shadow: 1px 1px 2px #000;
-  overflow: hidden; /* Ensure no overflow from animations */
+  overflow: auto; /* Allow scrolling if content overflows */
 }
 
 .surfboard {
