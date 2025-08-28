@@ -121,6 +121,34 @@ footer {
   padding-top: 1em;
 }
 
+.audio-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 2em;
+}
+
+#play-audio-btn {
+  font-size: 1.2em;
+  padding: 0.7em 2.5em;
+  border-radius: 20px;
+  background: #ff00ff;
+  border: none;
+  color: #fff;
+  box-shadow: 0 0 10px #39ff14;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+#play-audio-btn:hover {
+  background: #00ffff;
+  color: #ff00ff;
+  box-shadow: 0 0 20px #ff00ff;
+}
+
 .gallery img {
   width: 200px;
   margin: 10px;

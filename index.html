@@ -8,11 +8,12 @@
 
   <script defer src="js/app.js"></script>
 
-  <!-- Autoplay audio clip -->
-  <audio autoplay>
+  <!-- Audio clip with manual play button -->
+  <audio id="philip-audio">
     <source src="assets/philip.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -37,6 +38,9 @@
       <marquee behavior="scroll" direction="left">Love you, mean it!</marquee>
       <div id="jokeContainer"></div>
     </main>
+    <div class="audio-btn-container">
+      <button id="play-audio-btn" type="button">Play Audio</button>
+    </div>
     <footer>
       <p>Copyright &copy; 1999 - 2005 The Radical Philip Web</p>
     </footer>

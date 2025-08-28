@@ -13,10 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
   const joke = jokes[Math.floor(Math.random() * jokes.length)];
   if (jokeContainer) jokeContainer.innerHTML = `<p><strong>Pastor Joke:</strong> ${joke}</p>`;
-  const audio = document.querySelector('audio');
-  if (audio) {
-    audio.play().catch(error => {
-      console.error('Audio play failed:', error);
+  const audio = document.getElementById('philip-audio');
+  const playBtn = document.getElementById('play-audio-btn');
+  if (playBtn && audio) {
+    playBtn.addEventListener('click', () => {
+      audio.play().catch(error => {
+        console.error('Audio play failed:', error);
+      });
     });
   }
 });
